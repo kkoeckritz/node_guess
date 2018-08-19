@@ -18,6 +18,6 @@
   },
   "homepage": "https://github.com/kkoeckritz/node_guess#readme",
   "dependencies": {
-    "inquire": "^0.4.8"
+    "inquirer": "^6.1.0"
   }
 }

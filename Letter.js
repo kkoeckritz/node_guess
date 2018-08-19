@@ -1,7 +1,14 @@
 class Letter {
-    constructor(val, ) {
-        this.val = val;
-        this.guessed = false;
+    constructor(val) {
+
+        // handle spaces in input term
+        if (val == " ") {
+            this.guessed = true;
+        } else {
+            this.val = val.toLowerCase();
+            this.guessed = false;
+        }
+        
     }
 
     getState() {
@@ -12,12 +19,13 @@ class Letter {
         }
     }
 
-    checkLetter(letter) {
-        if (letter == this.val) {
+    checkLetter(input) {
+        var lower = input.toLowerCase();
+
+        if (lower == this.val) {
             this.guessed = true;
             return true;
-        }
-        else {
+        } else {
             return false;
         }
     }

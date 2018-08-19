@@ -5,7 +5,7 @@ class Word {
         this.letters = [];
 
         var split_val = val.split("");
-        for (var l in split_val) {
+        for (var l of split_val) {
             var new_let = new Letter.Letter(l);
             this.letters.push(new_let);
         }
@@ -18,14 +18,23 @@ class Word {
             wrd.push(l.getState());
         }
 
-        console.log(wrd.toString());
+        console.log(wrd.join(" "));
     }
 
     guessLetter(val) {
-        var done = true;
+        var solved = true;
+        var matched = false;
 
         for (var l of this.letters) {
-            if (l.checkLetter(val))
+            if (!l.checkLetter(val)) {
+                solved = false;
+            } else {
+                matched = true;
+            }
+        }
+        
+        if (!solved) {
+            return false;
         }
     }
 }
